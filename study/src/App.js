@@ -3,7 +3,12 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  return <div>HelloWorld</div>;
+  return <div
+    style = {{
+      backgroundColor:'blue'
+      }
+    }
+  >HelloWorld</div>;
 }
 
 export default App;

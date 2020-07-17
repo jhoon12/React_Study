@@ -1,12 +1,8 @@
-import React from 'react';
-import Mycomponent from './Mycomponent';
+import React from "react";
+import Say from "./Say";
 
-const App= ()=>{
-return (
-  <div>
-      <Mycomponent name="리엑트" favoriteNumber= {5} >TEST</Mycomponent>
-  </div>
-);
-}
+const App = () => {
+  return <Say />;
+};
 
 export default App;

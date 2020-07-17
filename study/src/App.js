@@ -3,12 +3,21 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  return <div
-    style = {{
-      backgroundColor:'blue'
-      }
-    }
-  >HelloWorld</div>;
+  return <>
+    <table className="table">
+      <tr>
+        <td colSpan='4'>
+          <input></input>
+        </td>
+      </tr>
+      <tr>
+        <td colSpan='4'>
+          <input></input>
+        </td>
+      </tr>
+         
+    </table> 
+  </>;
 }
 
 export default App;

@@ -5,7 +5,7 @@
 
 
 # 목차
-* 컴포넌트
+* [컴포넌트](https://github.com/jhoon12/React/tree/master/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8/component)
 
 * 이벤트 핸들링
 

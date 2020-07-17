@@ -1,11 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Mycomponent from './Mycomponent';
 
-function App() {
+const App= ()=>{
   return (
     <div>
-        hello world
+        <Mycomponent name="리엑트" favoriteNumber={'asdk'}>리엑트</Mycomponent>
     </div>
   );
 }

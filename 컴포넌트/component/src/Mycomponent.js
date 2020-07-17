@@ -1,7 +1,7 @@
 import React from 'react';
 import ProTypes from 'prop-types';
 
-class Mycomponent = ({name,favoriteNumber,children}) => {
+const Mycomponent = ({name,favoriteNumber,children}) => {
   return (
     <div>
       안녕하세요, 제 이름은 {name}입니다.

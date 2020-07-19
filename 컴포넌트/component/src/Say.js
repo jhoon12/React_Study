@@ -20,7 +20,7 @@ const Say = ({}) => {
   return (
     <div>
       {number}
-      <button onClick={changeNumber}>입장</button>
+      <button onClick={onClickEnter}>입장</button>
       <button onClick={onClickLeave}>퇴장</button>
       <h1 style={{ color }}>{message}</h1>
       <button onClick={onChangeColor} data-color="red" style={{ color: "red" }}>

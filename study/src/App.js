@@ -1,22 +1,12 @@
 import React from "react";
 import logo from "./logo.svg";
+import Counter from "./Counter.js";
+
 import "./App.css";
 
-function App() {
+function App()  {
   return <>
-    <table className="table">
-      <tr>
-        <td colSpan='4'>
-          <input></input>
-        </td>
-      </tr>
-      <tr>
-        <td colSpan='4'>
-          <input></input>
-        </td>
-      </tr>
-         
-    </table> 
+    <Counter></Counter>
   </>;
 }
 

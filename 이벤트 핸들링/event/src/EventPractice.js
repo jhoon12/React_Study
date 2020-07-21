@@ -1,55 +1,50 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 
-const EventPractice = ()=>{
-    const [form, setForm] = useState({username:'', message:''});
-    const{username, message} = form;
-    const onChange = e=>{
-        const nextForm = {
-            ...form,
-            [e.target.name]: e.target.value
-        };
-        setForm(nextForm);
+const EventPractice = () => {
+  // const [form, setForm] = useState({username:'', message:''});
+  const [username, setUsername] = useState("");
+  const [message, setMessage] = useState("");
+
+  const onChangeUsername = (e) => setUsername(e.target.vlaue);
+  const onChangeMessage = (e) =>
+    setMessage({ [e.target.name]: e.target.value });
+
+  const onChange = (e) => {
+    eval(`set${e.target.name}`)(e.target.value);
+  };
+
+  const onClick = () => {
+    alert(message + ":" + username);
+    setUsername("");
+    setMessage("");
+  };
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      onClick();
     }
-    // const [username, setUsername] = useState('');
-    // const [message, setMessage] = useState('');
-    // const onChangeUsername = e => setUsername(e.target.vlaue);
-    // const onChangeMessage = e => setMessage({[e.target.name]: e.target.value});
-    const onClick = () => {
-    alert(message+ ':' +username);
-        setForm({
-            username:'',
-            message:''
-        });
-    };
-    const onKeyPress = e =>{
-        if(e.key === 'Enter'){
-            onClick();
-        }
-    }
-    return(
+  };
+  return (
     <div>
-        <h1>이벤트 연습</h1>
-        <input
-            type="text"
-            name="message"
-            placeholder="아무거나입력해요"
-            value={message}
-            onChange={onChange}
-            onKeyPress={onKeyPress}
-        />
-        <input
-            type="text"
-            name="username"
-            placeholder="사용자명"
-            value={username}
-            onChange={onChange}>
-        </input>
-        <button onClick={onClick}>
-            정답
-        </button>
+      <h1>이벤트 연습</h1>
+      <input
+        type="text"
+        name="Message"
+        placeholder="아무거나입력해요"
+        value={message}
+        onChange={onChangeMessage}
+        onKeyPress={onKeyPress}
+      />
+      <input
+        type="text"
+        name="username"
+        placeholder="사용자명"
+        value={username}
+        onChange={onChangeUsername}
+      ></input>
+      <button onClick={onClick}>정답</button>
     </div>
-    )
-}
+  );
+};
 
 // class EventPractice extends Component{
 //     state = {

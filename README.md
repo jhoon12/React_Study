@@ -7,7 +7,7 @@
 # 목차
 * [컴포넌트](https://github.com/jhoon12/React/tree/master/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8/component)
 
-* 이벤트 핸들링
+* [이벤트 핸들링](https://github.com/jhoon12/React_Study/blob/master/%EC%9D%B4%EB%B2%A4%ED%8A%B8%20%ED%95%B8%EB%93%A4%EB%A7%81/event/%EC%9D%B4%EB%B2%A4%ED%8A%B8%20%ED%97%A8%EB%93%A4%EB%A7%81.md)
 
 * ref:DOM에 이름달기
 

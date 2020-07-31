@@ -1,0 +1,19 @@
+@charset "UTF-8";
+table{
+border-collapse: collapse;
+cursor: pointer;
+
+}
+td {
+    padding: 5px 10px;
+    text-align: center;
+}
+input {
+    text-align: right;
+    border: none;
+}
+input:focus {
+    outline: none;
+}
+
+

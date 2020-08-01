@@ -155,3 +155,138 @@ ref를 만드는 가장 기본적인 방법은 콜백함수이다.
 
 ### 2. createRef
 
+```react
+const Sample = ()=>{
+	input =React.createRef();
+    return <input ref={this.input}/>
+}
+```
+
+적용예시
+
+```react
+import React, {Component} from 'react';
+import './ValidationSample.css'
+
+class ValidationSample extends Component {
+    state = {
+        password : '',
+        clicked : false,
+        validated : false
+    }
+    handleChange = e =>{
+        this.setState({
+            password: e.target.value
+        });
+    }
+
+    handleButtonClick = () =>{
+        this.setState({
+            clicked : true,
+            validated : this.state.password === '0000'
+        });
+        this.testSample.focus();
+    }
+    render(){
+        return(
+            <div>
+                <input
+                ref={(ref) => this.testSampleref}
+                type="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+                className={this.state.clicked ? (this.state.validated ? 'success' : 'failure') : ''}/>
+                <button onClick={this.handleButtonClick}>검증하기</button>
+            </div>
+        );
+    }
+}
+export default ValidationSample;
+```
+
+## 컴포넌트에 이름달기
+
+```react
+<MyComponent
+	ref = {(ref)=>{this.myCOmponentT1 = ref}}
+/>
+```
+
+이렇게 한다면 컴포넌트 내부에 있는 ref에도 접근할 수 있다.
+
+## 스크롤 박스 테스트
+
+```react
+import React, {Component} from 'react';
+
+class ScrollBox extends Component{
+    render(){
+        const style = {
+            border : '1px solid black',
+            height : '300px',
+            width : '300px',
+            overFlow:'auto',
+            position: 'relative'
+        }
+        const innerStyle = {
+            width : '100%',
+            height : '650px',
+            background:'linear-gradient(white, black)'
+        }
+        return(
+            <div
+            style={style}
+            ref={(ref)=>this.box=ref}>
+                <div style={innerStyle}></div>
+            </div>
+        )
+    }
+}
+export default ScrollBox;
+```
+
+
+
+## 컴포넌트에 메서드 생성
+
+```react
+import React, {Component} from 'react';
+
+class ScrollBox extends Component{
+    scrollToBottom = ()=>{
+        const {scrollHeight, clientHeight} = this.box;
+        this.box.scrollTop = scrollHeight-clientHeight;
+    }
+    render(){
+        const style = {
+            border : '1px solid black',
+            height : '300px',
+            width : '300px',
+            overflow:'auto',
+            position: 'relative'
+        };
+        const innerStyle = {
+            width : '100%',
+            height : '650px',
+            background:'linear-gradient(white, black)'
+        };
+        return(
+            <div
+            style={style}
+            ref={(ref)=>this.box=ref}>
+                <div style={innerStyle}/>
+            </div>
+        )
+    }
+}
+
+export default ScrollBox;
+```
+
+# 정리
+
+컴포넌트 내부에서 dom에 직접 접근할 떄에는 ref를 활용하지만 먼저 활용하지 않아도 되는지를 체크
+
+컴포넌트끼리 데이터를 교류할 때에는 부모 <-> 자식흐름으로 교류해야함
+
+함수형 컴포넌트에서는 useRef라는 hooks를 활용함

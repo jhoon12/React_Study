@@ -18,14 +18,13 @@ class ValidationSample extends Component {
             clicked : true,
             validated : this.state.password === '0000'
         });
-        this.input.focus();
-        console.log(this.input);
+        this.testSample.focus();
     }
     render(){
         return(
             <div>
                 <input
-                ref={(ref) => this.input=ref}
+                ref={(ref) => this.testSample=ref}
                 type="password"
                 value={this.state.password}
                 onChange={this.handleChange}

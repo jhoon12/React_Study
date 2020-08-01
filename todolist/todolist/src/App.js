@@ -22,7 +22,7 @@ const Todo = ({ todo, todoFunc }) => {
         >delete</button>
         <button
           onClick={() => {
-            todoFunc.editStart({ todo});
+            todoFunc.editStart(todo);
           }}
         >
           Edit
@@ -34,7 +34,6 @@ const Todo = ({ todo, todoFunc }) => {
 function App() {
   const [toDosArr, setTodos] = useState([]);
   const [content, setContent] = useState("");
-  const [isEdit, setEdit] = useState(false)
   const change = (e) => {
     setContent(e.target.value);
   };
@@ -43,7 +42,7 @@ function App() {
       toDosArr.concat({
         id: toDosArr.length,
         data: content,
-        isEdit
+        isEdit : false
       })
     );
     setContent("");
@@ -51,8 +50,8 @@ function App() {
   const deleteTodo = (id) => {
     setTodos(toDosArr.filter((todo) => todo.id !== id));
   };
-  const editStart = ({ todo }) => {
-    setEdit(true);
+  const editStart = (todo) => {
+    todo.isEdit = true;
     todo.data = "";
     console.log(todo);
   };

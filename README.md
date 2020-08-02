@@ -11,7 +11,7 @@
 
 * [ref:DOM에 이름달기](https://github.com/jhoon12/React_Study/blob/master/ref%2C%20Dom%EC%97%90%20%EC%9D%B4%EB%A6%84%EB%8B%AC%EA%B8%B0/ref/ref%20Dom%EC%97%90%20%EC%9D%B4%EB%A6%84%20%EB%8B%AC%EA%B8%B0.md)
 
-* 컴포넌트 반복
+* 컴포넌트 반복  (https://github.com/jhoon12/React_Study/blob/master/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98%20%EB%B0%98%EB%B3%B5/comporepeat/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98%20%EB%B0%98%EB%B3%B5.md)
 
 * 컴포넌트의 라이프사이클 메서드
 

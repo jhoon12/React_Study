@@ -22,7 +22,8 @@ const IterationSample = ()=>{
         const nextNames = names.filter(name => name.id !== id);
         setNames(nextNames);
     }
-    const nameList = names.map(name => <><li key={name.id}>{name.text}<button onClick={()=>{onRemove(name.id)}}>remove</button></li></>);// plus를 클릭했을 때 MAP이 호출이 될까?(아마도 될 듯)
+    const nameList = names.map(name => {console.log("state update")
+     return (<><li key={name.id}>{name.text}<button onClick={()=>{onRemove(name.id)}}>remove</button></li></>)})// plus를 클릭했을 때 MAP이 호출이 될까?(아마도 될 듯)
     return (<>
         <input value={inputText} onChange={onChange}></input>
         <button onClick = {plus}>추가</button>

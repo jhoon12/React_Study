@@ -7,13 +7,18 @@
 리액트에 대하여 공부하기 전에 왜 사용하는지부터 알아보자
 
 1. **SPA , CSR**
+
     이전의 SSR(Server Side Rendering)일 때에는 변화가 있을 때 마다 새롭게 전체 페이지를 로드해야했다.
     그러나 SPA와 CSR은 서버로부터 데이터를 받아 클라이언트를 렌더링 하는 방식이다.
     바뀐 부분만 렌더링함에 따라 효율적으로 클라이언트 리소스를 사용할 수 있다.
+    
 2.**가상 DOM(virtual dom)** 으로 인한 충분히 빠른 속도
+
     기존에는 DOM에 직접 접근하여 브라우저에 화면을 나타내는 방식으로 HTML, CSS, JS를 다시 리렌더링 하기 때문에 속도가 느릴 수 밖에 없다.
     이 문제점을 virtual dom을 활용하여 해결했다. [virtual dom설명](https://www.youtube.com/watch?time_continue=1&v=BYbgopx44vo&feature=emb_logo)
+    
 3. 오직 **view**에만 집중
+
     다른 프레임워크와는 다르게 MVC프레임워크가 아니다.
     오직 view만 제공한다.
     따라서 DOM 객체의 갱신 및 이벤트 응답에만 관심이 있는 라이브러리이며 DOM업데이트 성능이 강점으로 작용한다.

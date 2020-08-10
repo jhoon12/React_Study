@@ -38,9 +38,11 @@
 
 * [컴포넌트의 라이프사이클 메서드](https://github.com/jhoon12/React_Study/blob/master/05.%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98%20%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4%20%EB%A9%94%EC%84%9C%EB%93%9C/lifecycle/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98%20%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4%20%EB%A9%94%EC%84%9C%EB%93%9C.md)
 
-* Hooks
+* [Hooks]
+(https://github.com/jhoon12/React_Study/blob/master/06.%20Hooks/hooks/Hooks.md)
 
-* 컴포넌트 스타일링
+* [컴포넌트 스타일링]
+(https://github.com/jhoon12/React_Study/blob/master/07.%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%20%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A7%81/style/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%20%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A7%81.md)
 
 * 일정 관리 웹 애플리케이션 만들기
 

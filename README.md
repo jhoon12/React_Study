@@ -42,9 +42,7 @@
 
 * [컴포넌트 스타일링](https://github.com/jhoon12/React_Study/blob/master/07.%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%20%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A7%81/style/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%20%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A7%81.md)
 
-* 일정 관리 웹 애플리케이션 만들기
-
-* 컴포넌트 성능 최적화 
+* [일정 관리 웹 애플리케이션 만들기 && 컴포넌트 성능 최적화](https://github.com/jhoon12/React_Study/tree/master/08.%20%EC%9D%BC%EC%A0%95%20%EA%B4%80%EB%A6%AC%20%EC%9B%B9%20%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%20%EB%A7%8C%EB%93%A4%EA%B8%B0/todo/src)
 
 * immer를 사용하여 더 쉽게 불변성 유지하기
 

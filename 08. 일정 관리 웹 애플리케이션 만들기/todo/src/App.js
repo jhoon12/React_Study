@@ -5,75 +5,68 @@ import './App.css';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 
-function App() {
-  const[todos, setTodos] = useState([
-    {
-      id: 1,
-      text: '리엑트의 기초 알아보기',
-      checked: true,
-      Edit: false,
-    },
-    {
-      id: 2,
-      text: '컴포넌트 스타일링 해보기',
-      checked: true,
-      Edit: false,
-    },
-    {
-      id: 3,
-      text: "일정 관리 앱 만들어 보기",
-      checked: false,
-      Edit: false,
-    }
-  ]);
+const createBulkTodos = ()=>{
+  const array = [];
+  for(let i = 1; i <= 2500; i++){
+    array.push({
+      id: i,
+      text:`할 일 ${i}`,
+      checked: false 
+    });
+  }
+  return array;
+}
 
-  const nextId = useRef(4)
+function App() {
+  const[todos, setTodos] = useState(createBulkTodos);
+
+  const nextId = useRef(2501)
 
   const onInsert = useCallback(
     text => {
-      console.log(todos)
       const todo ={
         id :  nextId.current,
         text,
         checked: false,
         Edit: false,
       };
-      setTodos(todos.concat(todo));
+      setTodos(todos => todos.concat(todo));
       nextId.current += 1;
-    },[todos]
+    },[]
   )
 
   const onRemove = useCallback(
     id =>{
-      setTodos(todos.filter(todo => todo.id !== id));
-    },[todos]
+      setTodos(todos => todos.filter(todo => todo.id !== id));
+    },[]
   )
 
   const onToggle = useCallback(
     id => {
       setTodos(
-        todos.map(todo => todo.id === id ? {...todo, checked: !todo.checked}: todo),
+      todos => todos.map(todo => todo.id === id ? {...todo, checked: !todo.checked}: todo),
       );
     },
-    [todos]
+    []
   )
 
   const onEdit = useCallback(
     id=>{
-      setTodos(
+      setTodos(todos =>
         todos.map(todo => todo.id === id ?{...todo, Edit:!todo.Edit} : todo)
       )
-      console.log(todos);
       },
-      [todos]
+      []
       )
     const onsubmit = useCallback(
       (id, inputValue)=>{
         setTodos(
+          todos=>
           todos.map(todo=> todo.id === id ? {...todo, text:inputValue, Edit:!todo.Edit} : todo)
         )
-      },
+      },[ ]
     )
+
   return (
     <TodoTemplate>
       <TodoInsert onInsert={onInsert}/>

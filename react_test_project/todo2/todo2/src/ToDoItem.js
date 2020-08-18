@@ -1,14 +1,16 @@
 import React, {useState, useCallback} from 'react';
+import style from './style'
 
 const ToDoItem = ({ list, removeItem, setEditItem, submitItem, key }) => {
     const [inputValue, inputValueChange] = useState("");
     const changeValue = (e)=>{
-      inputValueChange(inputValue => inputValue = e.target.value)
+
+      inputValueChange(e.target.value);
     }
     const { content, id, EditCheck } = list;
     return (
       <div>
-        {EditCheck ? <div>{content}</div> : <input value={inputValue} onChange={changeValue}></input>}
+        {EditCheck ? <div>{content}</div> : <input value={inputValue} onChange={changeValue} placeholder="수정"></input>}
         <button onClick={() => removeItem(id)}>삭제</button>
         <button
           onClick={() => {

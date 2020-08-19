@@ -1,9 +1,8 @@
-// import React from 'react';
-// import ToDoItem from './ToDoItem'
-// import styled, {css} from 'styled-components';
+import React from "react";
+import ToDoItem from "./ToDoItem";
+import styled, { css } from "styled-components";
 
-// const ToDoItem = styled.div`
-//     color:blue;
-// `
-
-// export default style
+export const Container = styled.div``;
+export const Button = styled.button`
+  background-color: blue;
+`;

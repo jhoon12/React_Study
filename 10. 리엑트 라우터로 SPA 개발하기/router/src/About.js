@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import qs from 'qs'
 
 const About = ({location})=>{

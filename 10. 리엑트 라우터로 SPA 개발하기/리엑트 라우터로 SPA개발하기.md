@@ -314,3 +314,136 @@ class HistorySample extends Component{
 export default HistorySample;
 ```
 
+
+
+## withRouter
+
+라우트로 사용된 컴포넌트가 아니어도 math, location, history객체를 접근할 수 있게 해준다.
+
+```react
+import React from 'react';
+import {withRouter} from 'react-router-dom';
+const WithRouterSample = ({location, match, history}) =>{
+    return(
+        <div>
+            <h4>location</h4>
+            <textarea
+            value={JSON.stringify(location, null,2)} rows={7} readOnly={true}></textarea> 
+            {/* null과 2를 넣는다면 json에 들여쓰기가 적용된 상태로 출력 */}
+            <h4>match</h4>
+            <textarea   
+            value={JSON.stringify(match, null,2)} rows={7} readOnly={true}></textarea>
+            <button onClick={()=>history.push('/')}>홈으로</button>
+        </div>
+    )
+}
+export default withRouter(WithRouterSample)
+```
+
+```jsx
+//profile.js
+<WithRouterSample></WithRouterSample>
+```
+
+
+
+## Switch
+
+여러 Route를 감싸서 그중 일치하는 단 하나의 라우트만을 렌더링 시켜준다.
+
+```jsx
+//App.js
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import {Route, Link, Switch} from 'react-router-dom';
+import About from './About';
+import Home from './Home';
+import Profile from './Profile';
+import Profiles from './Profiles';
+import history from "./HistorySample"
+import HistorySample from './HistorySample';
+
+function App() {
+  return (
+    <div>
+      <ul>
+        <li>
+          <Link to="/">홈</Link>
+        </li>
+        <li>
+          <Link to="/about">소개</Link>
+        </li>
+        <li>
+          <Link to="/profiles">프로필</Link>
+        </li>
+        <li>
+          <Link to="/history">Hitory예제</Link>
+        </li>
+      </ul>
+      <hr/>
+      <Switch>
+        <Route path="/" component={Home}  exact={true}/>
+        <Route path={['/about', '/info']} component={About} />
+        <Route path="/profiles" component={Profiles}/>
+        <Route path="/history" component={HistorySample}/>
+        <Route render={({location})=>(<div>
+          <h2>이 페이지는 존재하지 않습니다 :</h2>
+          {console.log(location)}
+          <p>{location.pathname}</p>
+        </div>)}// render를 사용함으로써 불필요한 마운트가 일어나지 않는다.
+        />
+      </Switch>
+    </div>
+  );
+}
+
+export default App;
+
+```
+
+
+
+## NavLink
+
+현재 경로와 LInk에서 사용하는 경로가 일치할 때 css를 적용
+
+```react
+import React from 'react';
+import {NavLink, Route} from 'react-router-dom';
+import Profile from './Profile';
+
+
+const Profiles = ()=>{
+    const activeStyle = {
+        background : 'black',
+        color : 'white'
+    }
+    return(
+        <div>
+            <h3>사용자 목록 : </h3>
+            <ul>
+                <li>
+                    <NavLink activeStyle={activeStyle} to="/profiles/velopert"> velopert </NavLink>
+                </li>
+                <li>
+                    <NavLink activeStyle={activeStyle} to="/profiles/gildong">gildong</NavLink>
+                </li>
+            </ul>
+            <Route path="/profiles" exact render={()=><div>사용자를 선택해 주세요</div>}/>
+            <Route path="/profiles/:username" component={Profile}/>
+        </div>
+        
+    )
+}
+export default Profiles
+```
+
+
+
+# 정리
+
+우리가 웹 사이트를 제작할 때  SPA가 아니라면 새로운 화면을 보여줄 때마다 서버측에서 모든 뷰를 준비해야합니다.
+따라서 사용자와의 인터렉션에 따라 필요한 부분만 업데이트를 하는 것이 효율적입니다. => 라우터 만들어짐
+
+단 앱의 규모가 커진다면 js파일 또한 커지기에(페이지 로딩시 사용자가 방문하지 않을 수도 있는 페이지의 스크립트도 불러옴) 이를 나중에 배울 코드 스플리팅을 활용하여 해결할 수 있다.

@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef } from "react";
-
+import * as S from "./style";
 import ToDoList from './ToDoList.js'
 // import style from './style.js'
 
@@ -44,26 +44,32 @@ function App() {
   },[list]);
 
   return (
-    <div>
-      <input
-        onChange={inputValueChange}
-        value={inputValue}
-        placeholder="입력하기"
-      />
-      <button
-        onClick={() => {
-          onInsert(inputValue);
-        }}
-      >
-        추가하기
-      </button>
-      <ToDoList
-        lists={list}
-        removeItem={removeItem}
-        setEditItem={setEditItem}
-        submitItem={submitItem}
-      ></ToDoList>
-    </div>
+    <S.Box>
+      <S.global/>
+      <S.ListBox>
+      <S.title>TO DO List</S.title>
+        <S.list>
+          <input
+          onChange={inputValueChange}
+          value={inputValue}
+          placeholder="입력하기"
+          />
+          <button
+            onClick={() => {
+              onInsert(inputValue);
+            }}
+          >
+            추가하기
+          </button>
+        </S.list>
+        <ToDoList
+            lists={list}
+            removeItem={removeItem}
+            setEditItem={setEditItem}
+            submitItem={submitItem}
+        ></ToDoList>
+      </S.ListBox>
+    </S.Box>
   );
 }
 export default App;

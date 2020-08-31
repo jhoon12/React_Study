@@ -1,4 +1,5 @@
-import React, { useState, useCallback } from "react";
+/* eslint-disable no-lone-blocks */
+import React, { useState } from "react";
 import * as S from "./style";
 
 const ToDoItem = ({ list, removeItem, setEditItem, submitItem, key }) => {
@@ -9,8 +10,8 @@ const ToDoItem = ({ list, removeItem, setEditItem, submitItem, key }) => {
   const { content, id, EditCheck } = list;
   return (
     <S.Container>
-      {EditCheck ? (
-        <div>{content}</div>
+     {EditCheck ? (
+        <li>{content}</li>
       ) : (
         <input
           value={inputValue}
@@ -20,7 +21,7 @@ const ToDoItem = ({ list, removeItem, setEditItem, submitItem, key }) => {
       )}
       <S.Button onClick={() => removeItem(id)}>삭제</S.Button>
       <S.Button
-        onClick={() => {
+        onClick ={() => {
           {
             EditCheck ? setEditItem(id) : submitItem(id, inputValue);
           }

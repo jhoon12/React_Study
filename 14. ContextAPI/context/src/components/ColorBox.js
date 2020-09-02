@@ -7,7 +7,7 @@ const ColorBox = ()=>{
             {value=>(
                 <div
                     style={{
-                        width:'64px',
+                        width:'74px',
                         height:'64px',
                         background: value.color
                     }}></div>

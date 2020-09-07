@@ -265,3 +265,43 @@ export default SelectColors;
 
 ```
 
+# Consumer 대신 Hook 또는 static contextType 사용하기
+
+useContext라는 Hook을 사용하면 Context를 아주 편하게 사용할 수 있다.
+
+```react
+import React, { useContext } from "react";
+import { ColorConsumer } from "../Context/color";
+import ColorContext from "../Context/color";
+
+const ColorBox = () => {
+  const {state} = useContext(ColorContext);
+  return (
+        <>
+          <div
+            style={{
+              width: "74px",
+              height: "64px",
+              background: state.color,
+            }}
+          ></div>
+          <div
+            style={{
+              width: "32px",
+              height: "32px",
+              background: state.subcolor,
+            }}
+          ></div>
+        </>
+  );
+};
+
+export default ColorBox;
+
+```
+
+# 정리
+
+기존에 상태를 공유할 교류할 때에는 무조건 부모->자식 흐름으로 props를 통해 전달했다.
+이제는 ContextAPI를 통해 더욱 쉽게 상태를 교류할 수 있다.
+전역적으로 여기저기서 사용되는 상태가 있고, 컴포넌트의 개수가 많다면 사용을 추천한다.

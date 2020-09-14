@@ -902,11 +902,12 @@ function reducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
+  //이 state값을 기본값 말고 대입해서는 사용 할 수 없을까? 사용할 수 없다면 왜 그런가?
   switch (action.type) {
     case TOGGLE_SWITCH:
       {
         return _objectSpread(_objectSpread({}, state), {}, {
-          //불변성 유지
+          //불변성 해결
           toggle: !state.toggle
         });
       }
@@ -947,7 +948,7 @@ var render = function render() {
 };
 
 render();
-store.subscribe(render);
+store.subscribe(render); //액션이 디스패치 되어 상태가 업데이트 될 때마다 호출
 
 divToggle.onclick = function () {
   store.dispatch(toggleSwitch());
@@ -988,7 +989,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52240" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62128" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

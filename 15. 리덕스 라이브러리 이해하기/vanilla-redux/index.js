@@ -18,11 +18,11 @@ const initialState = {
   counter: 0,
 };
 
-function reducer(state = initialState, action) {
+function reducer(state = initialState, action) {//이 state값을 기본값 말고 대입해서는 사용 할 수 없을까? 사용할 수 없다면 왜 그런가?
   switch (action.type) {
     case TOGGLE_SWITCH: {
       return {
-        ...state, //불변성 유지
+        ...state, //불변성 해결
         toggle: !state.toggle,
       };
     }
@@ -31,7 +31,7 @@ function reducer(state = initialState, action) {
         ...state,
         counter: state.counter + action.difference,
       };
-    }
+      }
     case DECREASE: {
       return {
         ...state,

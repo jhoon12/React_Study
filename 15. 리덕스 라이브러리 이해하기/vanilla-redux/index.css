@@ -5,6 +5,6 @@
     border-radius: 32px;
     box-sizing: border-box;
 }
-.toggle .active {
+.toggle.active {
     background: yellow
 }

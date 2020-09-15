@@ -32,7 +32,7 @@ export default App;
 우리가 createContext함수를 사용할 때에는 파라미터로 Context의 기본값을 넣어주었다.
 이 기본값은 Provider를 사용하지 않았을 때만 사용된다
 
-만약 provider를 사용했는데 valye값을 명시하지 않았다면 아래와 같이 오류가난다.
+만약 provider를 사용했는데 value값을 명시하지 않았다면 아래와 같이 오류가난다.
 
 ```react
 import React from 'react';

@@ -1,41 +1,53 @@
-import React from 'react'
+import React from "react";
 
-const TodoItem = ({todo, onToggle, onRemove}) => {
-    return(
-        <div>
-            <input type="checkbox" onClick={()=>onToggle(todo.id)} checked={todo.done} ></input>
-            <span>예제 텍스트</span>
-            <button>삭제</button>
-        </div>
-    )
-}
-
-
-
+const TodoItem = ({ todo, onToggle, onRemove }) => {
+  return (
+    <div>
+      <input
+        type="checkbox"
+        onClick={() => onToggle(todo.id)}
+        checked={todo.done}
+      />
+      <span style={{ textDecoration: todo.done ? "linr-through" : "none" }}>
+        {todo.text}
+      </span>
+      <button onClick={() => onRemove(todo.id)}>삭제</button>
+    </div>
+  );
+};
 
 const Todos = ({
-    input,
-    todos,
-    onChangeInput,
-    onInsert,
-    onToggle,
-    onRemove
+  input,
+  todos,
+  onChangeInput,
+  onInsert,
+  onToggle,
+  onRemove,
 }) => {
-    const onSubmit = e => {
-        e.preventDefault();
-        onInsert(input);
-        onChangeInput('');
-    };
-    const onChange = e => onChangeInput(e.target.value);
-    return(<div>
-        <form onSubmit={onSubmit}>
-            <input value={input} onChange={onChange}/>
-            <button type="submit">등록</button>
-        </form>
-
+  const onSubmit = (e) => {
+    e.preventDefault();
+    onInsert(input);
+    onChangeInput("");
+  };
+  const onChange = (e) => onChangeInput(e.target.value);
+  return (
     <div>
-        {todos.map(todo =>(<TodoItem todo={todo} key={todo.id} onToggle={onToggle} onRemove={onRemove}/>))}
+      <form onSubmit={onSubmit}>
+        <input value={input} onChange={onChange} />
+        <button type="submit">등록</button>
+      </form>
+
+      <div>
+        {todos.map((todo) => (
+          <TodoItem
+            todo={todo}
+            key={todo.id}
+            onToggle={onToggle}
+            onRemove={onRemove}
+          />
+        ))}
+      </div>
     </div>
-        </div>
-    )}
-export default Todos
+  );
+};
+export default Todos;

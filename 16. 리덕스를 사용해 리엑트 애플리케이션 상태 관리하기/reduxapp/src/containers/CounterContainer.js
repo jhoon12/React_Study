@@ -1,39 +1,20 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useCallback } from "react";
 import Counter from "../components/Counter";
-import {increase, decrease} from "../modules/counter"
-import {bindActionCreators} from 'redux';
+import { increase, decrease } from "../modules/counter";
+import { useSelector, useDispatch } from "react-redux";
 
-const CounterContainer = ({ number, increase, decrease }) => {
+const CounterContainer = () => {
+  const number = useSelector((state) => state.counter.number);
+  const dispatch = useDispatch();
+  const onDecrease = useCallback(()=>dispatch(decrease), [dispatch]);
+  const onIncrease = useCallback(()=>dispatch(increase), [dispatch])
   return (
     <Counter
       number={number}
-      onIncrease={increase}
-      onDecrease={decrease}
+      onIncrease={onIncrease}
+      onDecrease={onDecrease} 
     ></Counter>
   );
 };
-
-const mapStateToProps = (state) => ({//현재 스토어의 값
-  // number: state.counter.number,
-});
-
-const MapDispatchToProps = (dispatch) => ({//store의 내장함수
-  // increase: () => {
-  //   dispatch(increase());
-  // },
-  // decrease: () => {
-  //   dispatch(decrease());
-  // },
-});
-
-export default connect(
-  state=>({
-    number: state.counter.number,
-  }),
-  {
-    increase,
-    decrease
-  }
-)(CounterContainer);// mapStateToProps와 MapDispatchToProps의 반환 값들을 CounterContainer로 전달
-
+  
+export default CounterContainer;

@@ -52,7 +52,7 @@
 
 * [Context API](https://github.com/jhoon12/React_Study/tree/master/14.%20ContextAPI)
 
-* 리덕스 라이브러리 이해하기
+* [리덕스 라이브러리 이해하기](https://github.com/jhoon12/React_Study/tree/master/15.%20%EB%A6%AC%EB%8D%95%EC%8A%A4%20%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%20%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
 
 * 리덕스를 사용하여 리액트 라이브러리 상태 관리하기
 
